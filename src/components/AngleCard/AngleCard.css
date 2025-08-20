@@ -1,0 +1,52 @@
+.angle-card {
+    background: #f8f9fa;
+    padding: 20px;
+    border-radius: 12px;
+    text-align: center;
+    border-right: 4px solid #667eea;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .angle-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+  }
+  
+  .angle-label {
+    color: #495057;
+    margin-bottom: 8px;
+    font-size: 16px;
+    font-weight: 600;
+  }
+  
+  .angle-value {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 8px;
+    line-height: 1;
+  }
+  
+  .angle-description {
+    color: #6c757d;
+    font-size: 14px;
+    font-weight: 500;
+  }
+  
+  @media (max-width: 768px) {
+    .angle-card {
+      padding: 16px;
+    }
+    
+    .angle-value {
+      font-size: 1.75rem;
+    }
+    
+    .angle-label {
+      font-size: 15px;
+    }
+    
+    .angle-description {
+      font-size: 13px;
+    }
+  }

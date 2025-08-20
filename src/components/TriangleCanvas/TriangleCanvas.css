@@ -1,0 +1,27 @@
+.triangle-canvas-container {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+  }
+  
+  .triangle-canvas {
+    border: 2px solid #e9ecef;
+    border-radius: 12px;
+    background: white;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease;
+    max-width: 100%;
+    height: auto;
+    display: block;
+  }
+  
+  .triangle-canvas:hover {
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+  }
+  
+  @media (max-width: 768px) {
+    .triangle-canvas {
+      width: 100%;
+      max-width: 400px;
+    }
+  }

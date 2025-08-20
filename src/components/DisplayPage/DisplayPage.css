@@ -1,0 +1,147 @@
+.display-page {
+    min-height: 100vh;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+  }
+  
+  .display-container {
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    max-width: 1000px;
+    width: 100%;
+  }
+  
+  .display-header {
+    text-align: center;
+    margin-bottom: 30px;
+  }
+  
+  .back-btn {
+    position: absolute;
+    top: 30px;
+    right: 30px;
+    border-radius: 20px;
+    font-size: 14px;
+    padding: 10px 20px;
+  }
+  
+  .display-header h1 {
+    color: #333;
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    font-weight: 700;
+  }
+  
+  .coordinates-display {
+    margin-bottom: 20px;
+  }
+  
+  .coordinates-display h3 {
+    color: #495057;
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+    font-weight: 600;
+  }
+  
+  .coordinates-grid {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+  
+  .coord-item {
+    background: #f8f9fa;
+    padding: 10px 16px;
+    border-radius: 8px;
+    font-size: 16px;
+    color: #495057;
+    border: 1px solid #e9ecef;
+  }
+  
+  .canvas-section {
+    margin-bottom: 30px;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .angles-section {
+    text-align: center;
+  }
+  
+  .angles-section h2 {
+    color: #333;
+    font-size: 2rem;
+    margin-bottom: 25px;
+    font-weight: 600;
+  }
+  
+  .angles-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    margin-bottom: 25px;
+  }
+  
+  .angles-summary {
+    background: #f8f9fa;
+    padding: 20px;
+    border-radius: 12px;
+    border: 1px solid #e9ecef;
+  }
+  
+  .total-angles {
+    font-size: 1.2rem;
+    color: #495057;
+    margin-bottom: 10px;
+    font-weight: 600;
+  }
+  
+  .triangle-type {
+    font-size: 1.1rem;
+    color: #667eea;
+    font-weight: 600;
+    margin: 0;
+  }
+  
+  @media (max-width: 768px) {
+    .display-container {
+      padding: 20px 15px;
+      position: relative;
+    }
+    
+    .back-btn {
+      position: static;
+      margin-bottom: 20px;
+      width: 100%;
+      max-width: 200px;
+    }
+    
+    .display-header h1 {
+      font-size: 2rem;
+    }
+    
+    .coordinates-grid {
+      flex-direction: column;
+      align-items: center;
+    }
+    
+    .coord-item {
+      width: 100%;
+      max-width: 200px;
+      text-align: center;
+    }
+    
+    .angles-grid {
+      grid-template-columns: 1fr;
+      gap: 15px;
+    }
+    
+    .angles-section h2 {
+      font-size: 1.75rem;
+    }
+  }
