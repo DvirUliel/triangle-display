@@ -117,20 +117,15 @@ const angleA = Math.acos((b*b + c*c - a*a) / (2*b*c));
 
 ### 5. **I used Development Tools & AI Assistance - Claude Sonnet 4 Integration**
 
-This project was developed with assistance from **Claude Sonnet 4**, currently the most advanced AI model for code development and software engineering.
+This project was developed using Claude Sonnet 4 as a development assistant, leveraging modern AI tools to enhance productivity and code quality.
 
-**Key Benefits:**
-- **Industry-leading accuracy** in code generation and architectural planning
-- **Enhanced productivity** - faster development cycles with higher quality output
-- **Professional-grade capabilities** for complex, production-ready applications
+**Development Workflow:**
+- **Collaborative Planning:** Used AI consultation for architectural decisions and React best practices
+- **Code Review & Optimization:** AI assistance for code quality improvements and performance optimization
+- **Problem-Solving Support:** Leveraged AI for complex mathematical implementations (law of cosines) and Canvas API challenges
+- **Debugging Partnership:** AI-assisted debugging for geometric rendering edge cases
 
-**How Claude Enhanced Development:**
-- **Architecture Planning**: Modular React component structure and clean separation of concerns
-- **Mathematical Validation**: Correct implementation of geometric calculations (law of cosines)
-- **Performance Optimization**: Improved Canvas rendering and angle drawing accuracy
-- **Rapid Debugging**: Quick resolution of complex geometric rendering issues
-
-This approach demonstrates how modern AI tools can enhance developer productivity while maintaining high code quality and professional standards.
+This project demonstrates how developers can effectively integrate AI tools into their workflow while maintaining ownership of design decisions and core implementation logic.
 
 ## Example Test Cases
 
