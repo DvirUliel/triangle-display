@@ -1,70 +1,211 @@
-# Getting Started with Create React App
+# Triangle Display Application
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A React-based interactive application for displaying triangles and calculating their angles - developed as a technical exercise.
 
-## Available Scripts
+## Project Description
 
-In the project directory, you can run:
+An interactive application that allows users to input three points in 2D space and view the resulting triangle, including calculation and display of all angles.
 
-### `npm start`
+### Key Features
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- **Point Input Interface**: User-friendly form for entering 3 points (A, B, C) with X and Y coordinates
+- **Triangle Visualization**: Graphical display of the triangle on an 800x600px canvas
+- **Angle Calculation**: Automatic calculation of all three angles using the law of cosines
+- **Angle Marking**: Visual marking of each angle with colored curved lines
+- **Angle Values Display**: Display of angle values inside the triangle with white background circles
+- **Auto-scaling**: Automatic scaling to fit the triangle within the canvas bounds
+- **Triangle Type Detection**: Automatic determination of triangle type (acute, right, obtuse)
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Project Setup
 
-### `npm test`
+### Prerequisites
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- Node.js (version 14 or higher)
+- npm or yarn
 
-### `npm run build`
+### Installation
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+```bash
+# Clone the repository
+git clone https://github.com/yourusername/triangle-display.git
+cd triangle-display
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+# Install dependencies
+npm install
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+# Run the project in development mode
+npm start
+```
 
-### `npm run eject`
+The project will open in your browser at: `http://localhost:3000`
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### Running Tests
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+```bash
+npm test
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+### Production Build
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+```bash
+npm run build
+```
 
-## Learn More
+## Project Structure
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+```
+src/
+├── components/              # React components
+│   ├── InputPage/          # Point input page
+│   ├── DisplayPage/        # Triangle display page
+│   ├── PointInput/         # Individual point input component
+│   ├── TriangleCanvas/     # Canvas component for triangle drawing
+│   └── AngleCard/          # Angle display card
+├── hooks/                  # Custom React hooks
+│   └── useTriangleCalculations.js
+├── App.js                  # Main application component
+├── App.css                 # Application styles
+├── index.js                # Entry point
+└── index.css              # Global styles
+```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Technologies Used
 
-### Code Splitting
+- **React 18** - UI library
+- **Canvas API** - Graphical drawing of the triangle
+- **CSS3** - Styling and animations
+- **JavaScript ES6+** - Logic and mathematical calculations
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## Technical Implementation
 
-### Analyzing the Bundle Size
+### 1. Triangle Drawing Method
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+I chose to use the **Canvas API** for several reasons:
+- Excellent performance for graphical drawing
+- Full control over rendering and animations
+- Built-in support for complex geometric shapes
+- Ability to draw curved lines for angle marking
 
-### Making a Progressive Web App
+### 2. Angle Calculation
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+I used the **Law of Cosines** to calculate angles:
 
-### Advanced Configuration
+```javascript
+// Calculate side lengths
+const a = distance(B, C);  // BC
+const b = distance(A, C);  // AC  
+const c = distance(A, B);  // AB
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+// Law of cosines: cos(A) = (b² + c² - a²) / (2bc)
+const angleA = Math.acos((b*b + c*c - a*a) / (2*b*c));
+```
 
-### Deployment
+### 3. Key Challenges Solved
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+- **Auto-scaling algorithm** to fit triangles within canvas bounds
+- **Optimal text positioning** for angle values inside the triangle
+- **Curved line drawing** for angle marking with proper interior angles
+- **Responsive design** for mobile compatibility
 
-### `npm run build` fails to minify
+### 4. Features Added Beyond Requirements
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- **Triangle type identification** - automatic classification as acute/right/obtuse
+- **Reset to defaults** - option to return to predefined values
+- **Visual input validation** - visual feedback on input fields
+- **Coordinate display** - clear display of entered points
+- **Responsive design** - mobile-friendly interface
+
+### 5. **I used Development Tools & AI Assistance - Claude Sonnet 4 Integration**
+
+This project was developed with assistance from **Claude Sonnet 4**, currently the most advanced AI model for code development and software engineering.
+
+**Key Benefits:**
+- **Industry-leading accuracy** in code generation and architectural planning
+- **Enhanced productivity** - faster development cycles with higher quality output
+- **Professional-grade capabilities** for complex, production-ready applications
+
+**How Claude Enhanced Development:**
+- **Architecture Planning**: Modular React component structure and clean separation of concerns
+- **Mathematical Validation**: Correct implementation of geometric calculations (law of cosines)
+- **Performance Optimization**: Improved Canvas rendering and angle drawing accuracy
+- **Rapid Debugging**: Quick resolution of complex geometric rendering issues
+
+This approach demonstrates how modern AI tools can enhance developer productivity while maintaining high code quality and professional standards.
+
+## Example Test Cases
+
+### 1. **Right Triangle** (should have a 90° angle)
+```
+A: (0, 0)
+B: (300, 0) 
+C: (0, 400)
+```
+**Expected result:** Angle A = 90°, two acute angles
+
+### 2. **Equilateral Triangle** (all angles = 60°)
+```
+A: (400, 100)
+B: (600, 100)
+C: (500, 273)
+```
+**Expected result:** A = B = C = 60°
+
+### 3. **Isosceles Triangle**
+```
+A: (400, 100)
+B: (600, 100)
+C: (500, 300)
+```
+**Expected result:** Angles B and C equal, angle A different
+
+### 4. **Obtuse Triangle** (one angle > 90°)
+```
+A: (100, 300)
+B: (700, 350)
+C: (150, 600)
+```
+**Expected result:** One angle > 90°
+
+## How to Use
+
+1. **Enter Points**: Input X and Y values for three points
+2. **Display Triangle**: Click "Show Triangle" button
+3. **View Results**: See the triangle, angles, and statistical data
+
+## Technical Decisions
+
+### Why Canvas over SVG?
+- Better performance for dynamic drawing
+- More suitable for mathematical visualizations
+- Built-in arc drawing capabilities
+- Easier integration with React
+
+### Why Law of Cosines?
+- Works for all triangle types (including obtuse)
+- Mathematically stable formula
+- Provides accurate results
+
+### Component Architecture
+- **Modular design** with separate components for each feature
+- **Custom hooks** for mathematical calculations
+- **Clean separation** between UI and logic
+
+## Development Process
+
+This project was developed as a technical exercise with the following approach:
+- **Iterative development** - started with basic triangle, added features gradually
+- **Component-driven design** - broke down into reusable components
+- **Mathematical accuracy** - ensured correct geometric calculations
+- **User experience focus** - prioritized clear, intuitive interface
+
+## License
+
+MIT License - see LICENSE file for details.
+
+## Author
+
+Developed as a technical exercise demonstrating React development, mathematical computation, and Canvas API usage.
+
+---
+
+**Note**: This is a technical exercise project intended for demonstration purposes.
