@@ -30,77 +30,27 @@ const calculateAngles = (points) => {
 };
 
 /**
- * Scale points to fit within canvas bounds
- */
-const scalePointsToCanvas = (points, canvasWidth = 800, canvasHeight = 600, margin = 80) => {
-  const workingWidth = canvasWidth - 2 * margin;
-  const workingHeight = canvasHeight - 2 * margin;
-  
-  // Find bounds
-  const xs = [points.A.x, points.B.x, points.C.x];
-  const ys = [points.A.y, points.B.y, points.C.y];
-  
-  const minX = Math.min(...xs);
-  const maxX = Math.max(...xs);
-  const minY = Math.min(...ys);
-  const maxY = Math.max(...ys);
-  
-  const rangeX = maxX - minX || 1;
-  const rangeY = maxY - minY || 1;
-  
-  // Calculate scale factor
-  const scaleX = workingWidth / rangeX;
-  const scaleY = workingHeight / rangeY;
-  const scale = Math.min(scaleX, scaleY);
-  
-  // Scale and center points
-  return {
-    A: {
-      x: margin + (points.A.x - minX) * scale,
-      y: margin + (points.A.y - minY) * scale
-    },
-    B: {
-      x: margin + (points.B.x - minX) * scale,
-      y: margin + (points.B.y - minY) * scale
-    },
-    C: {
-      x: margin + (points.C.x - minX) * scale,
-      y: margin + (points.C.y - minY) * scale
-    }
-  };
-};
-
-/**
  * Custom hook for triangle calculations
  * @param {Object} points - Triangle points
- * @param {number} canvasWidth - Canvas width
- * @param {number} canvasHeight - Canvas height
- * @returns {Object} Calculations and utilities
+ * @returns {Object} Calculations
  */
-export const useTriangleCalculations = (points, canvasWidth = 800, canvasHeight = 600) => {
+export const useTriangleCalculations = (points) => {
   const [angles, setAngles] = useState({ A: 0, B: 0, C: 0 });
-  const [scaledPoints, setScaledPoints] = useState(points);
 
   useEffect(() => {
     if (points) {
-      // Calculate angles
+      // Calculate angles only - no scaling
       const calculatedAngles = calculateAngles(points);
       setAngles(calculatedAngles);
-
-      // Scale points for canvas
-      const scaled = scalePointsToCanvas(points, canvasWidth, canvasHeight);
-      setScaledPoints(scaled);
     }
-  }, [points, canvasWidth, canvasHeight]);
+  }, [points]);
 
   return {
     angles,
-    scaledPoints,
+    scaledPoints: points, // Return original points without scaling
     recalculate: () => {
       const calculatedAngles = calculateAngles(points);
       setAngles(calculatedAngles);
-      const scaled = scalePointsToCanvas(points, canvasWidth, canvasHeight);
-      setScaledPoints(scaled);
     }
   };
 };

@@ -5,7 +5,7 @@ import { useTriangleCalculations } from '../../hooks/useTriangleCalculations';
 import './DisplayPage.css';
 
 const DisplayPage = ({ points, onGoBack }) => {
-  const { angles, scaledPoints } = useTriangleCalculations(points);
+  const { angles } = useTriangleCalculations(points);
 
   const angleColors = {
     A: '#ff6b6b',
@@ -37,10 +37,10 @@ const DisplayPage = ({ points, onGoBack }) => {
 
         <div className="canvas-section">
           <TriangleCanvas 
-            points={scaledPoints}
+            points={points}
             angles={angles}
             width={800}
-            height={600}
+            height={800}
           />
         </div>
 
